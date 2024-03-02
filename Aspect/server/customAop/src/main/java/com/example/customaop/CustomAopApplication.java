@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CustomAopApplication {
 
     public static void main(String[] args) {
+        System.out.println("Start Custom AOP Example");
         SpringApplication.run(CustomAopApplication.class, args);
     }
 
