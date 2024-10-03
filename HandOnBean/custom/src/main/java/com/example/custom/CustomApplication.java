@@ -1,14 +1,16 @@
 package com.example.custom;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@SpringBootApplication
 public class CustomApplication {
 
     public static void main(String[] args) {
-        System.out.println("Start Custom Bean Creation");
-        SpringApplication.run(CustomApplication.class, args);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppContext.class);
+        Greeter g = applicationContext.getBean("greeter", Greeter.class); // bean 의 적은 메서드 명을 호출
+        String msg = g.greet();
+        System.out.println("!!!!");
+        System.out.println(msg);
+        applicationContext.close();
     }
 
 }
